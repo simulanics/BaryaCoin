@@ -25,8 +25,8 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 //TODO Specify total number of available coins
 //TODO ((uint64_t)(-1)) equals to 18446744073709551616 coins
 //TODO or you can define number explicitly UINT64_C(858986905600000000)
-const uint64_t MONEY_SUPPLY                                  = 620000000;
-const unsigned EMISSION_SPEED_FACTOR                         = 22;
+const uint64_t MONEY_SUPPLY                                  = UINT64_C(62000000000000000);
+const unsigned EMISSION_SPEED_FACTOR                         = 24;
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 //TODO Define number of blocks for block size median calculation
@@ -40,7 +40,7 @@ const uint64_t MINIMUM_FEE                                   = 100000;
 const uint64_t DEFAULT_DUST_THRESHOLD                        = MINIMUM_FEE;
 
 //TODO Define preferred block's target time
-const uint64_t DIFFICULTY_TARGET                             = 123; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 240; // seconds
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 //TODO There are options to tune CryptoNote's difficulty retargeting function.
 //TODO We recommend not to change it.
@@ -75,10 +75,10 @@ const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json"
 
 //TODO Put here the name of your currency
 const char     CRYPTONOTE_NAME[]                             = "baryacoin";
-const char     GENESIS_COINBASE_TX_HEX[]                     = "013c01ff0001ffffffffffff01029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101f92d23573f4f48105daa8e519a315c3687a8dd179d5c4909bd18579c33872e72";
+const char     GENESIS_COINBASE_TX_HEX[]                     = "013c01ff0001e8d792e20d029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101d1c98701f9b68bd409c8e4058c9cf199881702b3be12b7d0bc92a79cf804cd5b";
 
 const uint8_t  CURRENT_TRANSACTION_VERSION                   =  1;
-const uint8_t  BLOCK_MAJOR_VERSION_1                         =  1;
+const uint8_t  BLOCK_MAJOR_VERSION_1                         =  2;
 const uint8_t  BLOCK_MINOR_VERSION_0                         =  0;
 
 const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by default, blocks ids count in synchronizing
@@ -103,12 +103,14 @@ const uint32_t P2P_DEFAULT_CONNECTION_TIMEOUT                = 5000;          //
 const uint32_t P2P_DEFAULT_PING_CONNECTION_TIMEOUT           = 2000;          // 2 seconds
 const uint64_t P2P_DEFAULT_INVOKE_TIMEOUT                    = 60 * 2 * 1000; // 2 minutes
 const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          // 5 seconds
-const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "8f80f9a5a434a9f1510d13336228debfee9c918ce505efe225d8c94d045fa115";
+const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "90c7c569d2c4f4a594e57a1d9ae7736c18158520ba2e7b8e37f949594e4984a6";
 
 //TODO Add here your network seed nodes
 const std::initializer_list<const char*> SEED_NODES = {
   "seed.simulanics.com:17662",
-  "pool.simulanics.com:17662"
+  "pool.simulanics.com:17662",
+  "simulanics.com:17662",
+  "git.xojostudio.org:17662"
 };
 
 struct CheckpointData {
